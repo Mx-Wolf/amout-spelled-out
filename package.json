@@ -1,0 +1,27 @@
+{
+  "name": "amount-spelled-out",
+  "version": "1.0.0",
+  "description": "сумма прописью для платежки ЦБ",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mx-Wolf/amout-spelled-out.git"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register tests/**/*.test.ts",
+    "build": "tsc"
+  },
+  "keywords": ["рубли","словами", "сумма", "прописью"],
+  "author": "(c) Maxim Volkov",
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "@types/chai": "^4.2.12",
+    "@types/mocha": "^8.0.2",
+    "chai": "^4.2.0",
+    "mocha": "^8.1.1",
+    "nyc": "^15.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
