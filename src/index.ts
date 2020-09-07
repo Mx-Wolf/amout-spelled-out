@@ -33,21 +33,24 @@ function number_parser(_num: number, _desc: number) {
   const t = Math.floor((vnum % 100) / 10);
   const u = vnum % 10;
   let _string = '';
-
+  let plu = -1;
   if (h > 0) {
     _string = numerals[handreds][h] + ' ';
   }
   if (t < 2) {
-    _string += numerals[units][t * 10 + u] + ' ';
+    plu = t * 10 + u;
+    _string += numerals[units][plu] + ' ';
+    
   } else {
     _string += numerals[tens][t] + ' ' + numerals[units][u] + ' ';
+    plu = u;
   }
   if (isFeminin[_desc]) {
     _string = _string.replace('один', 'одна');
     _string = _string.replace('два', 'две');
   }
 
-  const plurality = u === 1 ? 0 : u > 1 && u < 5 ? 1 : 2;
+  const plurality = plu === 1 ? 0 : plu > 1 && plu < 5 ? 1 : 2;
   _string += names[_desc][plurality];
   _string = _string.replace('  ', ' ');
   return _string;

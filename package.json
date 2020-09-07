@@ -1,6 +1,6 @@
 {
   "name": "mx-wolf-amount-spelled-out",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "сумма прописью для платежки ЦБ",
   "main": "dist/index.js",
   "repository": {
