@@ -15,7 +15,7 @@ const names = [
 ];
 const isFeminin = [
   false, //рубль
-  true, //тысча
+  true, //тысяча
   false, //миллион
   false, //миллиард
 ];
@@ -40,16 +40,14 @@ function number_parser(_num: number, _desc: number) {
   if (t < 2) {
     plu = t * 10 + u;
     _string += numerals[units][plu] + ' ';
-    
   } else {
     _string += numerals[tens][t] + ' ' + numerals[units][u] + ' ';
     plu = u;
   }
   if (isFeminin[_desc]) {
-    _string = _string.replace('один', 'одна');
-    _string = _string.replace('два', 'две');
+    _string = _string.replace('один ', 'одна ');
+    _string = _string.replace('два ', 'две ');
   }
-
   const plurality = plu === 1 ? 0 : plu > 1 && plu < 5 ? 1 : 2;
   _string += names[_desc][plurality];
   _string = _string.replace('  ', ' ');
@@ -94,7 +92,7 @@ export function amoutSpelledOut(_number: number | undefined) {
     throw new Error("Numbers only");
   }
   if(!isFinite(_number)){
-    throw new Error("finate numbers only");    
+    throw new Error("finate numbers only");
   }
   if (_number <= 0) {
     throw new Error("Positive numbers only");
