@@ -1,6 +1,6 @@
 {
   "name": "mx-wolf-amount-spelled-out",
-  "version": "1.0.3",
+  "version": "2.0.4",
   "description": "сумма прописью для платежки ЦБ",
   "main": "dist/index.js",
   "repository": {
@@ -11,17 +11,21 @@
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
     "build": "tsc"
   },
-  "keywords": ["рубли","словами", "сумма", "прописью"],
+  "keywords": [
+    "рубли",
+    "словами",
+    "сумма",
+    "прописью"
+  ],
   "author": "(c) Maxim Volkov",
   "license": "MIT",
   "types": "dist/index.d.ts",
   "devDependencies": {
-    "@types/chai": "^4.2.12",
-    "@types/mocha": "^8.0.2",
-    "chai": "^4.2.0",
-    "mocha": "^8.1.1",
-    "nyc": "^15.1.0",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.7"
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.0.0",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
   }
 }

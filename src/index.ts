@@ -6,14 +6,14 @@ const numerals = [
 ];
 const units = 1;
 const tens = 2;
-const handreds = 3;
+const hundreds = 3;
 const names = [
   ["рубль", "рубля", "рублей"],
   ["тысяча", "тысячи", "тысяч"],
   ["миллион", "миллиона", "миллионов"],
   ["миллиард", "миллиарда", "миллиардов"]
 ];
-const isFeminin = [
+const isFeminine = [
   false, //рубль
   true, //тысяча
   false, //миллион
@@ -28,14 +28,14 @@ function number_parser(_num: number, _desc: number) {
       return "";
     }
   }
-  const vnum = _num;
-  const h = Math.floor(vnum / 100);
-  const t = Math.floor((vnum % 100) / 10);
-  const u = vnum % 10;
+  const numerical = _num;
+  const h = Math.floor(numerical / 100);
+  const t = Math.floor((numerical % 100) / 10);
+  const u = numerical % 10;
   let _string = '';
   let plu = -1;
   if (h > 0) {
-    _string = numerals[handreds][h] + ' ';
+    _string = numerals[hundreds][h] + ' ';
   }
   if (t < 2) {
     plu = t * 10 + u;
@@ -44,7 +44,7 @@ function number_parser(_num: number, _desc: number) {
     _string += numerals[tens][t] + ' ' + numerals[units][u] + ' ';
     plu = u;
   }
-  if (isFeminin[_desc]) {
+  if (isFeminine[_desc]) {
     _string = _string.replace('один ', 'одна ');
     _string = _string.replace('два ', 'две ');
   }
@@ -86,13 +86,13 @@ function rubsToString(rubs: number) {
   }).join(" ");
 }
 
-export function amoutSpelledOut(_number: number | undefined) {
+export function amountSpelledOut(_number: number | undefined) {
 
   if (typeof _number !== "number") {
     throw new Error("Numbers only");
   }
   if(!isFinite(_number)){
-    throw new Error("finate numbers only");
+    throw new Error("finite numbers only");
   }
   if (_number <= 0) {
     throw new Error("Positive numbers only");
@@ -104,5 +104,5 @@ export function amoutSpelledOut(_number: number | undefined) {
   const res = rubsToString(rubs);
 
   const r1 = (res + decimals_parser(cents)).replace(/\s+/g, " ").trim();
-  return r1.substr(0, 1).toLocaleUpperCase() + r1.substr(1);
+  return r1[0].toLocaleUpperCase() + r1.substring(1);
 }
