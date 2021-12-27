@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "npm run build"
   },
   "keywords": [
     "рубли",
